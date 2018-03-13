@@ -1,0 +1,295 @@
+---
+title: "Visualisation"
+author: "Alex"
+date: "14 March 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(grid)
+library(gridExtra)
+library(png)
+data <- read_csv("../data/datasets.csv")
+data_12 <- data %>% 
+  filter(dataset != 4)
+data <- data %>%
+  filter(dataset == 4)
+comb2pngs <- function(imgs, bottom_text = NULL){
+  img1 <-  grid::rasterGrob(as.raster(readPNG(imgs[1])),
+                            interpolate = FALSE)
+  img2 <-  grid::rasterGrob(as.raster(readPNG(imgs[2])),
+                            interpolate = FALSE)
+  grid.arrange(img1, img2, ncol = 2, bottom = bottom_text)
+}
+```
+
+## Why visualisation?
+
+Let's meet a dataset:
+
+```{r intro}
+data
+```
+
+
+Let's get an idea of its structure:
+
+```{r summary}
+summary(data)
+```
+
+One little scatterplot:
+
+```{r scatter, echo=FALSE}
+ggplot(data, aes(x, y)) +
+  geom_point() +
+  theme(aspect.ratio = 1)
+```
+
+Some more examples of why data visualisation is so valuable:
+
+[The datasaur dozen](https://www.autodeskresearch.com/publications/samestats]. ) group of 12 two-dimensional datasets that have identical:
+
+* mean in both dimensions
+* sd in both dimensions
+* correlation between x and y
+
+
+
+**But...**
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+
+```{r scatter12, echo=FALSE}
+ggplot(data_12, aes(x, y)) +
+  geom_point() +
+  facet_wrap(~dataset)
+```
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+
+## The roles of data visualisation 
+
+In general there are two purposes behind data visualisations:
+
+* As a discovery tool, to explore a dataset
+* As a storytelling tool, to highlight features of a dataset
+
+&nbsp;
+
+&nbsp;
+
+> In both cases, successful visualisation will 
+> illuminate and aid understanding, 
+> not confuse or obscure.
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+## Exercise - What is a data visualisation?
+
+What is the difference between panel E and the other panels in the following figure?
+
+<img src="../figure/diagram_plot.PNG" alt="Plot vs diagram" style="width: 600px;"/>
+
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+## Straight to a classic
+
+&nbsp;
+
+![](../figure/minard.jpg)
+
+### Exercise:
+
+- What are the data elements contributing to this plot?
+- How are they each visually represented?
+
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+## A modern example
+
+![](../figure/mayer2017.PNG)
+
+### Exercise:
+
+- How are the data elements linked to visual elements?
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+## Another example
+```{r echo=FALSE}
+p1 <- ggplot(diamonds, aes(carat, price)) +
+  geom_point()
+p2 <- p1 +
+  scale_y_log10() +
+  scale_x_log10()
+grid.arrange(p1, p2, ncol = 2)
+```
+
+### Exercise:
+
+Compare the two plots above
+- How are the data elements linked to the visual elements?
+- What is the difference between the two?
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+## Considerations for quality graphs:
+
+### Ink to information ratio
+
+Compare the amount of ink used with the amount of information communicated. A high ink:information can indicate a plot that hasn't been thought through, and is often distracting or confusing. 
+
+These plots often contain 'chart junk' (Edward Tufte).
+
+
+&nbsp;
+
+```{r echo=FALSE}
+comb2pngs(c("../figure/high-ink.PNG", "../figure/low-ink.PNG"))
+```
+
+## Exercise
+
+Compare the above figure. 
+- Which elements are removed in the left version?
+- Which elements could still be removed? What is their purpose?
+
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+## Some common errors in visualisation
+
+
+### Overplotting
+
+When there are too many data points...
+
+```{r echo=FALSE}
+ggplot(diamonds, aes(carat, price)) +
+  geom_point() +
+  scale_y_log10() +
+  scale_x_log10()
+```
+
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+## Exercise
+
+- What are some possible solutions to overplotting?
+
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+### Transparency
+
+```{r echo=FALSE}
+ggplot(diamonds, aes(carat, price)) +
+  geom_point(alpha = 0.05) +
+  scale_y_log10() +
+  scale_x_log10()
+```
+
+### Binning
+
+```{r echo=FALSE}
+ggplot(diamonds, aes(carat, price)) +
+  geom_hex() +
+  scale_y_log10() +
+  scale_x_log10() +
+  scale_fill_viridis_c()
+```
+
+### Jittering
+
+```{r echo=FALSE}
+p1 <- ggplot(diamonds, aes(cut, price)) +
+  geom_point()
+p2 <- ggplot(diamonds, aes(cut, price)) +
+  geom_point(position = "jitter")
+grid.arrange(p1, p2, ncol = 2)
+
+
+
