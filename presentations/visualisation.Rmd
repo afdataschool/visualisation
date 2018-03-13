@@ -121,7 +121,7 @@ In general there are two purposes behind data visualisations:
 
 What is the difference between panel E and the other panels in the following figure?
 
-<img src="../figure/diagram_plot.PNG" alt="Plot vs diagram" style="width: 600px;"/>
+<img src="figure/diagram_plot.PNG" alt="Plot vs diagram" style="width: 600px;"/>
 
 
 &nbsp;
@@ -138,7 +138,7 @@ What is the difference between panel E and the other panels in the following fig
 
 &nbsp;
 
-![](../figure/minard.jpg)
+![](figure/minard.jpg)
 
 ### Exercise:
 
@@ -158,7 +158,7 @@ What is the difference between panel E and the other panels in the following fig
 
 ## A modern example
 
-![](../figure/mayer2017.PNG)
+![](figure/mayer2017.PNG)
 
 ### Exercise:
 
@@ -208,7 +208,7 @@ These plots often contain 'chart junk' (Edward Tufte).
 &nbsp;
 
 ```{r echo=FALSE}
-comb2pngs(c("../figure/high-ink.PNG", "../figure/low-ink.PNG"))
+comb2pngs(c("figure/high-ink.PNG", "figure/low-ink.PNG"))
 ```
 
 ## Exercise
