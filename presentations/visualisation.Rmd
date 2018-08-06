@@ -177,7 +177,7 @@ What is the difference between panel E and the other panels in the following fig
 &nbsp;
 
 ## Another example
-```{r echo=FALSE}
+```{r echo=FALSE, fig.width=15}
 p1 <- ggplot(diamonds, aes(carat, price)) +
   geom_point()
 p2 <- p1 +
@@ -201,7 +201,14 @@ Compare the two plots above
 
 &nbsp;
 
-```{r echo = FALSE}
+```{r echo = FALSE, fig.width=15, cache=FALSE}
+harris.multi.uniformity %>% 
+  filter(crop %in% c("barley", "straw"),
+         year > 1917) %>% 
+  group_by(year, crop) %>% 
+  summarise(mean_yield = mean(yield)) %>% 
+  ungroup %>% 
+  mutate(year = as.factor(year)) -> dat_sum
 p1 <- ggplot(dat_sum, aes(year, mean_yield, fill = crop, colour = crop, group = crop)) +
   geom_bar(stat = "identity", position = "dodge")
 
@@ -300,7 +307,7 @@ ggplot(diamonds, aes(carat, price)) +
 
 ### Binning
 
-```{r echo=FALSE}
+```{r echo=FALSE, fig.width=15}
 ggplot(diamonds, aes(carat, price)) +
   geom_hex() +
   scale_y_log10() +
@@ -310,7 +317,7 @@ ggplot(diamonds, aes(carat, price)) +
 
 ### Jittering
 
-```{r echo=FALSE}
+```{r echo=FALSE, fig.width=15}
 p1 <- ggplot(diamonds, aes(cut, price)) +
   geom_point()
 p2 <- ggplot(diamonds, aes(cut, price)) +
