@@ -307,7 +307,7 @@ ggplot(diamonds, aes(carat, price)) +
 
 ### Binning
 
-```{r echo=FALSE, fig.width=15}
+```{r echo=FALSE}
 ggplot(diamonds, aes(carat, price)) +
   geom_hex() +
   scale_y_log10() +
