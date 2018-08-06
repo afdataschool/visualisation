@@ -179,7 +179,7 @@ What is the difference between panel E and the other panels in the following fig
 &nbsp;
 
 ## Another example
-![plot of chunk unnamed-chunk-20](figure/unnamed-chunk-20-1.png)
+![plot of chunk unnamed-chunk-1](figure/unnamed-chunk-1-1.png)
 
 ### Exercise:
 
@@ -193,7 +193,7 @@ Compare the two plots above
 
 &nbsp;
 
-![plot of chunk unnamed-chunk-21](figure/unnamed-chunk-21-1.png)
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png)
 
 ### Exercise:
 
@@ -220,7 +220,9 @@ These plots often contain 'chart junk' (Edward Tufte).
 
 &nbsp;
 
-![plot of chunk unnamed-chunk-22](figure/unnamed-chunk-22-1.png)
+<img src="figure/high-ink.PNG" width="425"/> <img src="figure/low-ink.PNG" width="425"/> 
+
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
 
 ## Exercise
 
@@ -242,7 +244,7 @@ Compare the above figure.
 
 When there are too many data points...
 
-![plot of chunk unnamed-chunk-23](figure/unnamed-chunk-23-1.png)
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
 
 
 &nbsp;
@@ -271,12 +273,12 @@ When there are too many data points...
 
 ### Transparency
 
-![plot of chunk unnamed-chunk-24](figure/unnamed-chunk-24-1.png)
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png)
 
 ### Binning
 
-![plot of chunk unnamed-chunk-25](figure/unnamed-chunk-25-1.png)
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png)
 
 ### Jittering
 
-![plot of chunk unnamed-chunk-26](figure/unnamed-chunk-26-1.png)
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png)
