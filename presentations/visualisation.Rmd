@@ -237,10 +237,6 @@ These plots often contain 'chart junk' (Edward Tufte).
 
 <img src="figure/high-ink.PNG" width="425"/> <img src="figure/low-ink.PNG" width="425"/> 
 
-```{r echo=FALSE}
-comb2pngs(c("../figure/high-ink.PNG", "../figure/low-ink.PNG"))
-```
-
 ## Exercise
 
 Compare the above figure. 

@@ -222,8 +222,6 @@ These plots often contain 'chart junk' (Edward Tufte).
 
 <img src="figure/high-ink.PNG" width="425"/> <img src="figure/low-ink.PNG" width="425"/> 
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
-
 ## Exercise
 
 Compare the above figure. 
@@ -244,7 +242,7 @@ Compare the above figure.
 
 When there are too many data points...
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
+![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
 
 
 &nbsp;
@@ -273,12 +271,12 @@ When there are too many data points...
 
 ### Transparency
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png)
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
 
 ### Binning
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png)
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png)
 
 ### Jittering
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png)
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png)
