@@ -2,12 +2,14 @@
 title: "Visualisation"
 author: "Alex"
 date: "14 March 2018"
-output: html_document
+output: 
+  md_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
+library(agridat)
 library(grid)
 library(gridExtra)
 library(png)
@@ -180,7 +182,10 @@ p1 <- ggplot(diamonds, aes(carat, price)) +
   geom_point()
 p2 <- p1 +
   scale_y_log10() +
-  scale_x_log10()
+  scale_x_log10(
+    breaks = scales::trans_breaks("log10", function(x) 10^x),
+   labels = scales::trans_format("log10", scales::math_format(10^.x))
+  ) + annotation_logticks()
 grid.arrange(p1, p2, ncol = 2)
 ```
 
@@ -196,6 +201,29 @@ Compare the two plots above
 
 &nbsp;
 
+```{r echo = FALSE}
+p1 <- ggplot(dat_sum, aes(year, mean_yield, fill = crop, colour = crop, group = crop)) +
+  geom_bar(stat = "identity", position = "dodge")
+
+p2 <- ggplot(dat_sum, aes(year, mean_yield, fill = crop, colour = crop, group = crop)) +
+  geom_line()
+grid.arrange(p1, p2, nrow = 1)
+```
+
+### Exercise:
+
+Compare the two plots above
+- How are the data elements linked to the visual elements?
+- What is the difference between the two?
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+
+
 ## Considerations for quality graphs:
 
 ### Ink to information ratio
@@ -208,7 +236,7 @@ These plots often contain 'chart junk' (Edward Tufte).
 &nbsp;
 
 ```{r echo=FALSE}
-comb2pngs(c("figure/high-ink.PNG", "figure/low-ink.PNG"))
+comb2pngs(c("../figure/high-ink.PNG", "../figure/low-ink.PNG"))
 ```
 
 ## Exercise
